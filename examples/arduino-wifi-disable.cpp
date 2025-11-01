@@ -1,5 +1,11 @@
+#include "Arduino.h"
+#include <WiFi.h>
 #include <esp_wifi.h>
 #include <cstdio>
+
+// This example uses Arduino setup/loop functions.
+// They need to be enabled in
+// idf.py menuconfig -> Component config -> Arduino -> Arduino functions -> Autostart Arduino
 
 void disableWifi() {
   // Properly disable WiFi to save power
@@ -49,8 +55,11 @@ void disableBluetooth() {
 #endif
 }
 
-extern "C" void app_main()
-{
+
+void setup() {
   disableWifi();
   disableBluetooth();
+}
+
+void loop() {
 }
